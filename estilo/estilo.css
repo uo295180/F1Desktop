@@ -3,13 +3,72 @@
 * UO295180
 */
 
-body{
-    font-family: Helvetica;
-    background-color: #e8eef1;
+body /*Especificidad = 001*/{
+    font-family: Helvetica, Arial, sans-serif;
     color: #1e3d58;
+    background-color: #e8eef1;
 }
 
-h1,h2, h3,h4,h5,h6{
+h1 a /*Especificidad = 002*/{
+    text-decoration-line: none;
+}
+
+p /*Especificidad = 001*/{
+    font-size: smaller;
+}
+
+section p /*Especificidad = 002*/{
+    font-size: 100%;
+}
+
+h2,h3,h4,h5,h6 /*Especificidad = 005*/{
     color: #035286;
+    background-color: inherit;
 }
 
+header /*Especificidad = 001*/{
+    background-color: #035286;
+    color: #e8eef1;
+}
+
+header a:visited /*Especificidad = 012*/{
+    color: #e8eef1;
+    background-color: inherit;
+}
+header a:hover /*Especificidad = 012*/{
+    color: #FFFe92;
+    background-color: inherit;
+}
+
+section a:visited /*Especificidad = 012*/{
+    color: #0C2E36;
+    background-color: inherit;
+}
+section a:hover /*Especificidad = 012*/{
+    color: #6E211A;
+    background-color: inherit;
+}
+
+ul, ol /*Especificidad = 002*/{
+    margin: 18px;
+}
+ul /*Especificidad = 001*/{
+    list-style-type: square;
+}
+ol /*Especificidad = 001*/{
+    list-style-type: upper-roman;
+}
+
+dd, dt /*Especificidad = 002*/{
+    line-height: 1.5;
+}
+dt /*Especificidad = 001*/{
+    font-weight: bold;
+}
+
+table {
+    table-layout: fixed;
+    border-collapse: collapse;
+    width: 100%;
+    border: 2px solid;
+}
