@@ -3,3 +3,13 @@
 * UO295180
 */
 
+body{
+    font-family: Helvetica;
+    background-color: #e8eef1;
+    color: #1e3d58;
+}
+
+h1,h2, h3,h4,h5,h6{
+    color: #057dcd;
+}
+
