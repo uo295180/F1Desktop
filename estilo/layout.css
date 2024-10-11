@@ -1,0 +1,11 @@
+header nav{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    background-color: #035286;
+}
+
+nav a{
+    color: #e8eef1;
+    justify-content: space-between;
+}
