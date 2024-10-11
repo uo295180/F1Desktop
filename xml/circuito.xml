@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE circuito SYSTEM "circuito.dtd">
+<circuito>
+    <nombre>Shanghai International Circuit</nombre>
+    <longitud unidades="kilómetros">5.451</longitud>
+    <anchura unidades="metors">14</anchura>
+    <fecha>2024-04-21</fecha>
+    <hora>09:00</hora>
+    <vueltas>56</vueltas>
+    <localidad>Jiading, Shanghai</localidad>
+    <pais>China</pais>
+    <informacion>
+        <referencia>https://en.wikipedia.org/wiki/Shanghai_International_Circuit</referencia>
+        <referencia>https://www.formula1.com/en/results.html/2024/races/1011/china.html</referencia>
+        <referencia>https://www.autosport.com/f1/news/shanghai-circuit-guide-2024-f1-chinese-gp/10414740/</referencia>
+    </informacion>
+    <multimedia>
+        <fotografia>
+            <url>CircuitoShangai.png</url>
+            <pie>Fotografía del circuito de Shanghai</pie>
+        </fotografia>
+        <fotografia>
+            <url>ImagenShangai.jpeg</url>
+            <pie>Fotografía de dos coches en shangai</pie>
+        </fotografia>
+        <!-- Add more photos up to 5 -->
+        <!-- Add videos up to 3 -->
+    </multimedia>
+    <salida>
+        <coordenadas>
+            <longitud>
+                <grados>121</grados>
+                <minutos>13</minutos>
+                <segundos>14</segundos>
+            </longitud>
+            <latitud>
+                <grados>31</grados>
+                <minutos>20</minutos>
+                <segundos>14</segundos>
+            </latitud>
+            <altitud>4</altitud>
+        </coordenadas>
+    </salida>
+    <tramos>
+        <tramo>
+            <distancia unidades="metros">207.63</distancia>
+            <coordenadas>
+                <longitud>
+                    <grados>121</grados>
+                    <minutos>13</minutos>
+                    <segundos>6</segundos>
+                </longitud>
+                <latitud>
+                    <grados>31</grados>
+                    <minutos>20</minutos>
+                    <segundos>12</segundos>
+                </latitud>
+                <altitud>4</altitud>
+            </coordenadas>
+            <sector>1</sector>
+        </tramo>
+        <tramo>
+            <distancia unidades="metros">126.32</distancia>
+            <coordenadas>
+                <longitud>
+                    <grados>121</grados>
+                    <minutos>13</minutos>
+                    <segundos>2</segundos>
+                </longitud>
+                <latitud>
+                    <grados>31</grados>
+                    <minutos>20</minutos>
+                    <segundos>11</segundos>
+                </latitud>
+                <altitud>3</altitud>
+            </coordenadas>
+            <sector>1</sector>
+        </tramo>
+        <tramo>
+            <distancia unidades="metros">171.71</distancia>
+            <coordenadas>
+                <longitud>
+                    <grados>121</grados>
+                    <minutos>13</minutos>
+                    <segundos>3</segundos>
+                </longitud>
+                <latitud>
+                    <grados>31</grados>
+                    <minutos>20</minutos>
+                    <segundos>17</segundos>
+                </latitud>
+                <altitud>3</altitud>
+            </coordenadas>
+            <sector>3</sector>
+        </tramo>
+        <tramo>
+            <distancia unidades="metros">519.01</distancia>
+            <coordenadas>
+                <longitud>
+                    <grados>121</grados>
+                    <minutos>12</minutos>
+                    <segundos>54</segundos>
+                </longitud>
+                <latitud>
+                    <grados>31</grados>
+                    <minutos>20</minutos>
+                    <segundos>32</segundos>
+                </latitud>
+                <altitud>4</altitud>
+            </coordenadas>
+            <sector>5</sector>
+        </tramo>
+        <tramo>
+            <distancia unidades="metros">433.77</distancia>
+            <coordenadas>
+                <longitud>
+                    <grados>121</grados>
+                    <minutos>13</minutos>
+                    <segundos>6</segundos>
+                </longitud>
+                <latitud>
+                    <grados>31</grados>
+                    <minutos>20</minutos>
+                    <segundos>22</segundos>
+                </latitud>
+                <altitud>3</altitud>
+            </coordenadas>
+            <sector>5</sector>
+        </tramo>
+    </tramos>
+</circuito>
