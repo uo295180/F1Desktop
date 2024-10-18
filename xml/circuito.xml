@@ -2,7 +2,7 @@
 <!DOCTYPE circuito SYSTEM "circuito.dtd">
 <circuito>
     <nombre>Shanghai International Circuit</nombre>
-    <longitud unidades="kilómetros">5.451</longitud>
+    <longitudcircuito unidades="kilómetros">5.451</longitudcircuito>
     <anchura unidades="metors">14</anchura>
     <fecha>2024-04-21</fecha>
     <hora>09:00</hora>
