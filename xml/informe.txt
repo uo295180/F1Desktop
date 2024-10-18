@@ -12,7 +12,6 @@ Cambios en tipos de datos:
     - Elemento altitud de string a integer
     - Elemento distancia de string a decimal
     - Elemento sector de string a integer
-    - Elemento grados de string a integer
     - Elemento minutos de string a integer
     - Elemento segundos de string a integer
 
@@ -23,3 +22,26 @@ Cambios en rangos:
         - Elemento fotografia de 1 a unbounded a 1 a 5
         - Elemento video de 0 a unbounded a 0 a 3
     
+Cambio importante:
+Para poder aplicar distintas restricciones sobre los grados de las latitudes y los de las longitudes, se han creado dos elementos -> gradosLongitud y gradosLatitud, que sustituyen a grados. estos estan parametrizados de la siguiente forma:
+
+    <xs:element name="gradosLatitud">
+		<xs:simpleType>
+			<xs:restriction base="xs:integer">
+				<xs:minInclusive value="-90"/>
+				<xs:maxInclusive value="90"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+
+	<xs:element name="gradosLongitud">
+		<xs:simpleType>
+			<xs:restriction base="xs:integer">
+				<xs:minInclusive value="0"/>
+				<xs:maxInclusive value="180"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+
+Tambien se parametriza el elemento altitud de la siguiente forma:
+

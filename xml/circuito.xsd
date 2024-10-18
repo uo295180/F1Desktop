@@ -95,7 +95,7 @@
 	<xs:element name="longitud">
 		<xs:complexType>
 			<xs:sequence>
-				<xs:element ref="grados" />
+				<xs:element ref="gradosLongitud" />
 				<xs:element ref="minutos" />
 				<xs:element ref="segundos" />
 			</xs:sequence>
@@ -104,13 +104,20 @@
 	<xs:element name="latitud">
 		<xs:complexType>
 			<xs:sequence>
-				<xs:element ref="grados" />
+				<xs:element ref="gradosLatitud" />
 				<xs:element ref="minutos" />
 				<xs:element ref="segundos" />
 			</xs:sequence>
 		</xs:complexType>
 	</xs:element>
-	<xs:element name="altitud" type="xs:integer" />
+	<xs:element name="altitud">
+		<xs:simpleType>
+			<xs:restriction base="xs:integer">
+				<xs:minInclusive value="0"/>
+				<xs:maxInclusive value="8000"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
 	<xs:element name="tramos">
 		<xs:complexType>
 			<xs:sequence>
@@ -137,7 +144,24 @@
 		</xs:complexType>
 	</xs:element>
 	<xs:element name="sector" type="xs:integer" />
-	<xs:element name="grados" type="xs:integer" />
+	<xs:element name="gradosLatitud">
+		<xs:simpleType>
+			<xs:restriction base="xs:integer">
+				<xs:minInclusive value="-90"/>
+				<xs:maxInclusive value="90"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+
+	<xs:element name="gradosLongitud">
+		<xs:simpleType>
+			<xs:restriction base="xs:integer">
+				<xs:minInclusive value="0"/>
+				<xs:maxInclusive value="180"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
 	<xs:element name="minutos" type="xs:integer" />
 	<xs:element name="segundos" type="xs:integer" />
+	
 </xs:schema>
