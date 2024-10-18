@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE circuito SYSTEM "circuito.dtd">
-<circuito>
+<circuito xsi:schemaLocation="http://www.uniovi.es circuito.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.uniovi.es">
     <nombre>Shanghai International Circuit</nombre>
     <longitudcircuito unidades="kilómetros">5.451</longitudcircuito>
     <anchura unidades="metros">14</anchura>
     <fecha>2024-04-21</fecha>
-    <hora>09:00</hora>
+    <hora>09:00:00</hora>
     <vueltas>56</vueltas>
     <localidad>Jiading, Shanghai</localidad>
     <pais>China</pais>

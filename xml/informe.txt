@@ -1,0 +1,25 @@
+Cambiada la codificacion a utf-8
+
+Cambiado en la etiqueta xs:schema los atributos xlmns y targetNamespace de http://tempuri.org/circuito a http://www.uniovi.es
+
+Cambios en tipos de datos:
+
+    - Elemento longitudcircuito de string a decimal
+    - Elemento anchura de string a integer
+    - Elemento fecha de string a date
+    - Elemento hora de string a time
+    - Elemento vueltas de string a integer
+    - Elemento altitud de string a integer
+    - Elemento distancia de string a decimal
+    - Elemento sector de string a integer
+    - Elemento grados de string a integer
+    - Elemento minutos de string a integer
+    - Elemento segundos de string a integer
+
+Cambios en rangos:
+
+    - Elemento informacion, elemento referencia de 0 a unbounded a 3 a unbounded
+    -  Elemento multimedia:
+        - Elemento fotografia de 1 a unbounded a 1 a 5
+        - Elemento video de 0 a unbounded a 0 a 3
+    
