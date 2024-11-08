@@ -6,13 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Mario Orviz Viesca" />
     <meta name="description" content=" ... " />
-    <meta name="keywords" content="aquí cada documento debe tener la lista de las palabras clave del mismo separadas por comas" />
+    <meta name="keywords"
+        content="aquí cada documento debe tener la lista de las palabras clave del mismo separadas por comas" />
 
     <title>F1Desktop - Viajes</title>
 
     <link rel="stylesheet" type="text/css" href="estilo/estilo.css">
-    <link rel="icon" type="image/ico" href="multimedia/imágenes/f1icon.ico" sizes="16x16"> 
-
+    <link rel="icon" type="image/ico" href="multimedia/imágenes/f1icon.ico" sizes="16x16">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="js/viajes.js"></script>
 </head>
 
 <body>
@@ -33,6 +36,10 @@
 
     <h2>Viajes</h2>
     <p>En desarrollo...</p>
+
+    <main id="ubicacion">
+        <input type="button" value="Obtener mis coordenadas, altitud, rumbo y velocidad" onclick="viajes.verTodo('ubicacion');">
+    </main>
 </body>
 
 </html>
