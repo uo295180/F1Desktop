@@ -56,6 +56,26 @@ class Pais{
         document.write("<p>Longitud: "+this.meta.longitud + ", Latitud: "+this.meta.latitud+ ", Altitud: "+ this.meta.altitud+ "</p>")
     }
 
+    getMeteorology(){
+        $(document).ready(function () {
+            const apiKey = 'b7be616cf27c1a8c0a3c1759c5ce7c24';
+            const url = `https://api.openweathermap.org/data/2.5/forecast/daily?lat=${meta.latitud}&lon=${meta.longitud}&cnt=${5}&appid=${apiKey}`;
+
+            $.ajax({
+                url: url,
+                type: 'GET',
+                dataType: 'xml',
+                success: function (response) {
+                    console.log("Response")
+                    console.log(response)
+                },
+                error: function () {
+                    console.error('Error al obtener los datos meteorológicos.');
+                }
+            });
+});
+
+    }
 }
 
 let p = new Pais("China", "Pekín", 1425671300)
@@ -69,3 +89,5 @@ console.log(p.getMeta())
 console.log(p.getNombre())
 
 p.writeCoords()
+
+p.getMeteorology();
