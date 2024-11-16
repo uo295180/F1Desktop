@@ -41,6 +41,10 @@ section article[data-state=flip] {
     transform: rotateY(180deg);
 }
 
+section article[data-state=revealed] {
+    transform: rotateY(180deg);
+}
+
 section article h3,
 section article img {
     margin: 0;

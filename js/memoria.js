@@ -1,4 +1,4 @@
-class Memoria{
+class Memoria {
     elements = [
         {
             "id": "1",
@@ -59,6 +59,7 @@ class Memoria{
 
         this.shuffleElements();
         this.createElements();
+        this.addEventListeners();
     }
 
     shuffleElements() {
@@ -68,39 +69,38 @@ class Memoria{
         }
     }
 
-    unflipCards(){
+    unflipCards() {
         this.lockBoard = true;
-        if(this.firstCard == null) this.firstCard = this.article;
-        else{ 
-            this.secondCard = this.article;
-            this.checkForMatch();
-        }
-
-
-        this.resetBoard();
+        setTimeout(() => {
+            this.firstCard.setAttribute('data-state', '');
+            this.secondCard.setAttribute('data-state', '')
+            this.resetBoard();
+        }, 1500);
     }
 
     resetBoard() {
-        this.lockBoard = false;
-        this.hasFlippedCard = false;
         this.firstCard = null;
-        this.secondCard = null; 
+        this.secondCard = null;
+        this.lockBoard = false;
     }
 
     checkForMatch() {
-        this.firstCard.getAttribute('data-element') == this.secondCard.getAttribute('data-element') ? this.disableCrads() : this.resetBoard()
+        this.firstCard.getAttribute('data-element') == this.secondCard.getAttribute('data-element') ? this.disableCrads() : this.unflipCards()
     }
 
     disableCrads() {
         console.log("Match: ", this.firstCard, this.secondCard);
-        // Modify the state of the cards
+        this.firstCard.setAttribute('data-state', 'revealed');
+        this.secondCard.setAttribute('data-state', 'revealed');
+        this.firstCard = null;
+        this.secondCard = null;
         this.resetBoard();
     }
 
     createElements() {
         const container = document.querySelector('section');
 
-        this.elements.forEach(({element, source}) => {
+        this.elements.forEach(({ element, source }) => {
             const article = document.createElement('article');
             article.setAttribute('data-element', element);
             const heading = document.createElement('h3');
@@ -108,19 +108,32 @@ class Memoria{
             const image = document.createElement('img');
             image.setAttribute('src', source);
             image.setAttribute('alt', element);
-
             article.appendChild(heading);
             article.appendChild(image);
-
             container.appendChild(article);
-
-            article.addEventListener('click', () => {
-                console.log("Clicked on: ", article.getAttribute('data-element'));
-                article.setAttribute('data-state', 'flip')
-                this.unflipCards.bind(article, this);
-            })
-
         })
+    }
+
+    addEventListeners() {
+        let cards = document.querySelectorAll('article');
+        cards.forEach(card => {
+            card.onclick = this.flipCard.bind(card, this);
+        })
+    }
+
+    flipCard(gameInstance) {
+        if (gameInstance.lockBoard) return;
+        if (this === gameInstance.firstCard) return;
+
+        this.setAttribute('data-state', 'flip');
+
+        if (gameInstance.firstCard == null) {
+            gameInstance.firstCard = this;
+        } else {
+            gameInstance.secondCard = this;
+            gameInstance.lockBoard = true;
+            gameInstance.checkForMatch();
+        }
     }
 
 
