@@ -21,28 +21,12 @@ section p /*Especificidad = 002*/{
     font-size: 100%;
 }
 
-h2,h3,h4,h5,h6 /*Especificidad = 005*/{
+h2,h3,h4,h5,h6 /*Especificidad = 001*/{
     color: #035286;
     background-color: inherit;
 }
 
-header /*Especificidad = 001*/{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-evenly;
-    background-color: #035286;
-    color: #e8eef1;
-}
 
-header a:visited /*Especificidad = 012*/{
-    color: #e8eef1;
-    background-color: inherit;
-}
-header a:hover /*Especificidad = 012*/{
-    color: #FFFe92;
-    background-color: inherit;
-}
 
 section a:visited /*Especificidad = 012*/{
     color: #0C2E36;
@@ -53,7 +37,7 @@ section a:hover /*Especificidad = 012*/{
     background-color: inherit;
 }
 
-ul, ol /*Especificidad = 002*/{
+ul, ol /*Especificidad = 001*/{
     margin: 18px;
 }
 ul /*Especificidad = 001*/{
@@ -63,30 +47,30 @@ ol /*Especificidad = 001*/{
     list-style-type: upper-roman;
 }
 
-dd, dt /*Especificidad = 002*/{
+dd, dt /*Especificidad = 001*/{
     line-height: 1.5;
 }
 dt /*Especificidad = 001*/{
     font-weight: bold;
 }
 
-table {
+table /*Especificidad = 001*/{
     table-layout: fixed;
     border-collapse: collapse;
     width: 100%;
     border: 2px solid;
 }
 
-td, th{
+td, th/*Especificidad = 001*/{
     border-collapse: collapse;
     border: 1px solid;
 }
 
-tbody td {
+tbody td /*Especificidad = 002*/{
     text-align: center;
 }
 
-video {
+video /*Especificidad = 001*/{
     width: 100%;
     height: auto;
 }

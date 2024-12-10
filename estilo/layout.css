@@ -1,11 +1,61 @@
-header nav{
+header /*Especificidad = 001*/{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1em 2em;
+    background-color: #035286;
+    color: #e8eef1;
+}
+header nav/*Especificidad = 002*/{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    background-color: #035286;
+    justify-content: space-between;
+    gap: 0.3em;
+    background-color: inherit;
 }
 
-nav a{
+header a:visited/*Especificidad = 012*/{
     color: #e8eef1;
-    justify-content: space-between;
+    background-color: inherit;
+}
+
+header nav a:visited /*Especificidad = 013*/{
+    color: #e8eef1;
+    background-color: inherit;
+}
+header nav a:hover /*Especificidad = 013*/{
+    color: #FFFe92;
+    background-color: inherit;
+}
+
+header nav a/*Especificidad = 003*/{
+    color: #e8eef1;
+    text-decoration: none;    
+    transition: color 0.5s ease;
+}
+
+header nav a.active/*Especificidad = 013*/{
+    color: #FFFe92
+}
+@media (max-width: 768px){
+    header/*Especificidad = 001*/{
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    header nav /*Especificidad = 002*/{
+        justify-content: flex-start;
+    }
+
+}
+@media (max-width: 580px){
+    header nav /*Especificidad = 002*/{
+        flex-direction: column;
+    }
+}
+@media (max-width: 480px){
+    body > p:first-of-type/*Especificidad = 012*/{
+        display: none;
+    }
 }
