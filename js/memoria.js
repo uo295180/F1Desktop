@@ -124,6 +124,7 @@ class Memoria {
     flipCard(gameInstance) {
         if (gameInstance.lockBoard) return;
         if (this === gameInstance.firstCard) return;
+        if (this.getAttribute('data-state') == 'revealed') return;
 
         this.setAttribute('data-state', 'flip');
 

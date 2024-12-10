@@ -3,9 +3,9 @@ section {
     display: grid; /* Usamos grid para organizar las tarjetas */
     grid-template-columns: repeat(4, 1fr); /* 4 columnas */
     grid-template-rows: repeat(3, auto); /* 3 filas, de altura automática */
-    gap: 1em; /* Espacio entre las tarjetas */
+    gap: 0.5em; /* Espacio entre las tarjetas */
     justify-items: center; /* Centra las tarjetas horizontalmente */
-    padding: 1em; /* Reducimos el padding para hacer que el contenedor se vea más pequeño */
+    padding: 0.5em; /* Reducimos el padding para hacer que el contenedor se vea más pequeño */
     width: 80%; /* Ancho del contenedor reducido al 80% del ancho de la página */
     max-width: 40em; /* Limita el ancho máximo del contenedor */
     margin: 0 auto; /* Centra la sección en la página */
