@@ -47,7 +47,6 @@ class Pais{
         info += "<li>" + this.getPoblacion() + "</li>"
         info += "<li>" + this.getTipoGobierno() + "</li>"
         info += "<li>" + this.getReligion() + "</li>"
-
         info += "</ol>"
         return info;
     }
@@ -73,8 +72,7 @@ class Pais{
                     console.error('Error al obtener los datos meteorológicos.');
                 }
             });
-});
-
+        });
     }
 }
 

@@ -13,7 +13,6 @@ header nav/*Especificidad = 002*/{
     flex-wrap: wrap;
     justify-content: space-between;
     gap: 0.3em;
-    background-color: inherit;
 }
 
 header a:visited/*Especificidad = 012*/{
@@ -31,13 +30,13 @@ header nav a:hover /*Especificidad = 013*/{
 }
 
 header nav a/*Especificidad = 003*/{
-    color: #e8eef1;
     text-decoration: none;    
     transition: color 0.5s ease;
 }
 
 header nav a.active/*Especificidad = 013*/{
-    color: #FFFe92
+    color: #FFFe92;
+    background-color: inherit;
 }
 @media (max-width: 768px){
     header/*Especificidad = 001*/{
