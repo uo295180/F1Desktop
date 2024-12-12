@@ -5,7 +5,7 @@
     from{background-color: red;} to{background-color: #000A;}
 }
 
-main {
+main /*Especifidad 001*/{
     width: 60%;
     height: 50%;
     margin: auto;
@@ -17,12 +17,12 @@ main {
     align-items: center;
 }
 
-main h2 {
+main h2 /*Especifidad 002*/{
     grid-column: 1 / -1;
     text-align: center;
 }
 
-main div {
+main div /*Especifidad 002*/{
     background-color: #000A;
     border: 5px solid black;
     aspect-ratio: 1;
@@ -30,23 +30,23 @@ main div {
     max-width: 100%;
 }
 
-main button:first-of-type {
+main button:first-of-type /*Especifidad 012*/{
     grid-column: 2 / span 1;
 }
 
-main p {
+main p /*Especifidad 002*/{
     grid-column: 1 / -1;
     grid-row: 3;
     text-align: center;
 
 }
 
-main.load div:nth-child(2) {animation: 0.5 light forwards;}
-main.load div:nth-child(3) {animation: 0.5s light 0.5s forwards;}
-main.load div:nth-child(4) {animation: 0.5s light 1s forwards;}
-main.load div:nth-child(5) {animation: 0.5s light 1.5s forwards;}
+main.load div:nth-child(2) /*Especifidad 022*/{animation: 0.5 light forwards;}
+main.load div:nth-child(3) /*Especifidad 022*/{animation: 0.5s light 0.5s forwards;}
+main.load div:nth-child(4) /*Especifidad 022*/{animation: 0.5s light 1s forwards;}
+main.load div:nth-child(5) /*Especifidad 022*/{animation: 0.5s light 1.5s forwards;}
 
 main.unload div:nth-child(2),
 main.unload div:nth-child(3),
 main.unload div:nth-child(4),
-main.unload div:nth-child(5) {animation: 0.5s out forwards}
+main.unload div:nth-child(5) /*Especifidad 022*/{animation: 0.5s out forwards}
