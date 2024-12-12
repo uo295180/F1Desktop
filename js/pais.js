@@ -151,6 +151,6 @@ meta.longitud = 121.2196
 meta.altitud = 3
 p.fillValues("Shangai", "República", meta, "Confuncionismo, budismo y taoísmo")
 
-p.writeCoords()
+//p.writeCoords()
 
 p.getMeteorology();
