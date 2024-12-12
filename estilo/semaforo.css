@@ -11,7 +11,7 @@ main {
     margin: auto;
     
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     grid-template-rows: 1fr 1fr 1fr;
     gap: 5% 3%;
     align-items: center;
@@ -27,6 +27,7 @@ main div {
     border: 5px solid black;
     aspect-ratio: 1;
     border-radius: 50%;
+    max-width: 100%;
 }
 
 main button:first-of-type {

@@ -5,7 +5,6 @@ class Semaforo{
     clic_moment = null;
     difficulty = 0;
     button2 = undefined
-    reactionTime = undefined;
 
     constructor(){
         this.difficulty = this.levels[this.getRandomInt(3)];
@@ -20,7 +19,9 @@ class Semaforo{
     initSequence(){
 
         const container = document.querySelector('main');
-        if(this.reactionTime != undefined) container.remove(this.reactionTime);
+        let p = container.querySelectorAll('p');
+        console.log(p);
+        if(p.length == 5) container.removeChild(p[4]);
         container.classList.add('load');
         this.button1.disabled = true;
 
@@ -45,9 +46,9 @@ class Semaforo{
         this.clic_moment = Date.now();
         let time = this.clic_moment - this.unload_moment;
 
-        this.reactionTime = document.createElement('p');
-        this.reactionTime.textContent = "Reaction time: " + time/1000 + "s";
-        container.appendChild(this.reactionTime);
+        let reactionTime = document.createElement('p');
+        reactionTime.textContent = "Reaction time: " + time/1000 + "s";
+        container.appendChild(reactionTime);
 
         this.button2.disabled = true;
         this.button1.disabled = false;
