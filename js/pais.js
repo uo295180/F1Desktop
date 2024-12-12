@@ -1,4 +1,4 @@
-class Pais{
+class Pais {
     name;
     capital;
     nombreCircuito;
@@ -7,41 +7,41 @@ class Pais{
     meta;
     religion;
 
-    constructor(name, capital, poblacion){
+    constructor(name, capital, poblacion) {
         this.name = name;
         this.capital = capital;
         this.poblacion = poblacion;
     }
 
-    fillValues(nombreCircuito, tipoGobierno, meta, religion){
+    fillValues(nombreCircuito, tipoGobierno, meta, religion) {
         this.nombreCircuito = nombreCircuito;
         this.tipoGobierno = tipoGobierno;
         this.meta = meta;
-        this.religion = religion;    
+        this.religion = religion;
     }
-    getNombre(){
+    getNombre() {
         return this.name;
     }
     getCapital() {
         return this.capital;
     }
-    getNombreCicuito(){
+    getNombreCicuito() {
         return this.nombreCircuito;
     }
-    getPoblacion(){
+    getPoblacion() {
         return this.poblacion;
     }
-    getTipoGobierno(){
+    getTipoGobierno() {
         return this.tipoGobierno;
     }
-    getMeta(){
-        return this.meta; 
+    getMeta() {
+        return this.meta;
     }
-    getReligion(){
+    getReligion() {
         return this.religion;
     }
 
-    getInfo(){
+    getInfo() {
         let info = "<ol>"
         info += "<li>" + this.getNombreCicuito() + "</li>"
         info += "<li>" + this.getPoblacion() + "</li>"
@@ -51,40 +51,105 @@ class Pais{
         return info;
     }
 
-    writeCoords(){
-        document.write("<p>Longitud: "+this.meta.longitud + ", Latitud: "+this.meta.latitud+ ", Altitud: "+ this.meta.altitud+ "</p>")
+    writeCoords() {
+        document.write("<p>Longitud: " + this.meta.longitud + ", Latitud: " + this.meta.latitud + ", Altitud: " + this.meta.altitud + "</p>")
     }
 
-    getMeteorology(){
-        $(document).ready(function () {
-            const apiKey = 'b7be616cf27c1a8c0a3c1759c5ce7c24';
-            const url = `https://api.openweathermap.org/data/2.5/forecast/daily?lat=${meta.latitud}&lon=${meta.longitud}&cnt=${5}&appid=${apiKey}`;
+    getMeteorology() {
+        let latitud = this.meta.latitud;
+        let longitud = this.meta.longitud;
+        const apiKey = 'b7be616cf27c1a8c0a3c1759c5ce7c24';
+        const url = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitud}&lon=${longitud}&appid=${apiKey}&mode=xml&units=metric&lang=es`;
+        $.ajax({
+            url: url,
+            type: "GET",
+            dataType: "xml",  // Request the response in XML format
+            success: function (data) {
+                console.log("XML Data received:", data);
+                let dailyForecasts = {};
 
-            $.ajax({
-                url: url,
-                type: 'GET',
-                dataType: 'xml',
-                success: function (response) {
-                    console.log("Response")
-                    console.log(response)
-                },
-                error: function () {
-                    console.error('Error al obtener los datos meteorológicos.');
+                $(data).find("forecast time").each(function () {
+                    const fromTime = $(this).attr("from");
+                    const toTime = $(this).attr("to");
+
+                    const symbolName = $(this).find("symbol").attr("name");
+
+                    const temperature = $(this).find("temperature").attr("value");
+                    const temperatureMin = $(this).find("temperature").attr("min");
+                    const temperatureMax = $(this).find("temperature").attr("max");
+
+                    const windSpeed = $(this).find("windSpeed").attr("mps");
+                    const windDirection = $(this).find("windDirection").attr("name");
+
+                    const clouds = $(this).find("clouds").attr("value");
+                    const humidity = $(this).find("humidity").attr("value");
+
+                    const fromDate = new Date(fromTime);
+                    const toDate = new Date(toTime);
+
+                    const dayOfWeek = fromDate.toLocaleDateString('es-ES', { weekday: 'long' });
+                    const dayOfMonth = fromDate.getDate();
+                    const startDate = fromDate.toLocaleString('es-ES', { hour: '2-digit', minute: '2-digit' });
+                    const endDate = toDate.toLocaleString('es-ES', { hour: '2-digit', minute: '2-digit' });
+
+
+                    const dayKey = `${fromDate.getFullYear()}-${fromDate.getMonth() + 1}-${fromDate.getDate()}`;
+                    if (!dailyForecasts[dayKey]) {
+                        dailyForecasts[dayKey] = {
+                            dayOfWeek: dayOfWeek,
+                            dayOfMonth: dayOfMonth,
+                            forecasts: []
+                        };
+                    }
+
+                    // Añadir la franja horaria al día correspondiente
+                    dailyForecasts[dayKey].forecasts.push({
+                        startDate: startDate,
+                        endDate: endDate,
+                        symbolName: symbolName,
+                        temperature: temperature,
+                        temperatureMin: temperatureMin,
+                        temperatureMax: temperatureMax,
+                        windSpeed: windSpeed,
+                        windDirection: windDirection,
+                        clouds: clouds,
+                        humidity: humidity
+                    });
+                });
+
+                for (let dayKey in dailyForecasts) {
+                    const dayData = dailyForecasts[dayKey];
+
+                    // Crear un artículo para el día
+                    const dayArticle = $("<article></article>");
+                    dayArticle.append(`<h2>${dayData.dayOfWeek}, ${dayData.dayOfMonth}</h2>`);
+
+                    // Para cada franja horaria del día, creamos un artículo interno
+                    dayData.forecasts.forEach(forecast => {
+                        const timeArticle = $("<article></article>");
+                        timeArticle.append(`<h3>${forecast.startDate} - ${forecast.endDate}</h3>`);
+                        timeArticle.append(`<p><strong>Meteorología:</strong> ${forecast.symbolName}</p>`);
+                        timeArticle.append(`<p><strong>Temperatura:</strong> ${forecast.temperature} C (Min: ${forecast.temperatureMin} C, Max: ${forecast.temperatureMax} C)</p>`);
+                        timeArticle.append(`<p><strong>Velocidad del viento:</strong> ${forecast.windSpeed} m/s (Direccion: ${forecast.windDirection})</p>`);
+                        timeArticle.append(`<p><strong>Nubes:</strong> ${forecast.clouds}</p>`);
+                        timeArticle.append(`<p><strong>Humedad:</strong> ${forecast.humidity}%</p>`);
+
+                        dayArticle.append(timeArticle);
+
+                    })
+                    $("main").append(dayArticle);
                 }
-            });
-        });
+            }
+        })
     }
 }
 
 let p = new Pais("China", "Pekín", 1425671300)
 let meta = new Object()
-meta.latitud = 2
-meta.longitud = 10
+meta.latitud = 31.3389
+meta.longitud = 121.2196
 meta.altitud = 3
 p.fillValues("Shangai", "República", meta, "Confuncionismo, budismo y taoísmo")
-
-console.log(p.getMeta())
-console.log(p.getNombre())
 
 p.writeCoords()
 
