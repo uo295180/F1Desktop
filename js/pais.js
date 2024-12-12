@@ -102,7 +102,6 @@ class Pais {
                         };
                     }
 
-                    // Añadir la franja horaria al día correspondiente
                     dailyForecasts[dayKey].forecasts.push({
                         startDate: startDate,
                         endDate: endDate,
@@ -120,11 +119,9 @@ class Pais {
                 for (let dayKey in dailyForecasts) {
                     const dayData = dailyForecasts[dayKey];
 
-                    // Crear un artículo para el día
                     const dayArticle = $("<article></article>");
                     dayArticle.append(`<h2>${dayData.dayOfWeek}, ${dayData.dayOfMonth}</h2>`);
 
-                    // Para cada franja horaria del día, creamos un artículo interno
                     dayData.forecasts.forEach(forecast => {
                         const timeArticle = $("<article></article>");
                         timeArticle.append(`<h3>${forecast.startDate} - ${forecast.endDate}</h3>`);
@@ -150,7 +147,5 @@ meta.latitud = 31.3389
 meta.longitud = 121.2196
 meta.altitud = 3
 p.fillValues("Shangai", "República", meta, "Confuncionismo, budismo y taoísmo")
-
-//p.writeCoords()
 
 p.getMeteorology();

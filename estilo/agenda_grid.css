@@ -1,0 +1,63 @@
+main {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(18em, 1fr)); /* Dynamic grid layout */
+    gap: 1.5em;  
+    padding: 1em;  
+}
+
+/* Style each race article */
+article {
+    background-color: #f9f9f9;  /* Light background color */
+    border-radius: 8px;  /* Rounded corners */
+    padding: 15px;  /* Padding inside each article */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);  /* Subtle shadow for depth */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+article:hover {
+    transform: scale(1.05); 
+    box-shadow: 0 0.4em 1em rgba(0, 0, 0, 0.2); 
+}
+
+article h2 {
+    font-size: 1.6em;
+    margin-bottom: 1em;
+    color: #333;
+}
+
+ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+li {
+    font-size: 1em;
+    margin-bottom: 0.8em;
+    color: #555;
+}
+
+dataList {
+    font-size: 1rem;
+}
+
+main {
+        margin: 0 auto;  
+        max-width: 120em;
+}
+
+@media screen and (max-width: 768px) {
+    article {
+        padding: 1.2em;
+    }
+
+    article h2 {
+        font-size: 1.4em;
+    }
+
+    li {
+        font-size: 0.9em; 
+    }
+}
