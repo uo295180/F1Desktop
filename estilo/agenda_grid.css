@@ -1,63 +1,58 @@
-main {
+main /*Especifidad 001*/{
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(18em, 1fr)); /* Dynamic grid layout */
+    grid-template-columns: repeat(auto-fill, minmax(18em, 1fr));
     gap: 1.5em;  
     padding: 1em;  
 }
 
-/* Style each race article */
-article {
-    background-color: #f9f9f9;  /* Light background color */
-    border-radius: 8px;  /* Rounded corners */
-    padding: 15px;  /* Padding inside each article */
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);  /* Subtle shadow for depth */
+article /*Especifidad 001*/{
+    background-color: #f9f9f9;
+    border-radius: 0.8em;
+    padding: 1.5em;  
+    box-shadow: 0 0.2em 0.6em rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-article:hover {
+article:hover /*Especifidad 011*/{
     transform: scale(1.05); 
     box-shadow: 0 0.4em 1em rgba(0, 0, 0, 0.2); 
 }
 
-article h2 {
+article h2 /*Especifidad 002*/{
     font-size: 1.6em;
     margin-bottom: 1em;
     color: #333;
 }
 
-ul {
+ul /*Especifidad 001*/{
     list-style: none;
     padding-left: 0;
 }
 
-li {
+li /*Especifidad 001*/{
     font-size: 1em;
     margin-bottom: 0.8em;
     color: #555;
 }
 
-dataList {
-    font-size: 1rem;
-}
-
-main {
+main /*Especifidad 001*/{
         margin: 0 auto;  
         max-width: 120em;
 }
 
 @media screen and (max-width: 768px) {
-    article {
+    article /*Especifidad 001*/{
         padding: 1.2em;
     }
 
-    article h2 {
+    article h2 /*Especifidad 002*/{
         font-size: 1.4em;
     }
 
-    li {
+    li /*Especifidad 001*/{
         font-size: 0.9em; 
     }
 }
