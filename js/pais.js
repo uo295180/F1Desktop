@@ -67,12 +67,13 @@ class Pais {
             success: function (data) {
                 console.log("XML Data received:", data);
                 let dailyForecasts = {};
-
+                let limitDays = 0;
                 $(data).find("forecast time").each(function () {
                     const fromTime = $(this).attr("from");
                     const toTime = $(this).attr("to");
 
                     const symbolName = $(this).find("symbol").attr("name");
+                    const symbolCode = $(this).find("symbol").attr("var");
 
                     const temperature = $(this).find("temperature").attr("value");
                     const temperatureMin = $(this).find("temperature").attr("min");
@@ -94,26 +95,30 @@ class Pais {
 
 
                     const dayKey = `${fromDate.getFullYear()}-${fromDate.getMonth() + 1}-${fromDate.getDate()}`;
-                    if (!dailyForecasts[dayKey]) {
-                        dailyForecasts[dayKey] = {
-                            dayOfWeek: dayOfWeek,
-                            dayOfMonth: dayOfMonth,
-                            forecasts: []
-                        };
+                    
+                    if (limitDays < 5) {
+                        if (!dailyForecasts[dayKey]) {
+                            limitDays++;
+                            dailyForecasts[dayKey] = {
+                                dayOfWeek: dayOfWeek,
+                                dayOfMonth: dayOfMonth,
+                                forecasts: []
+                            };
+                        }
+                        dailyForecasts[dayKey].forecasts.push({
+                            startDate: startDate,
+                            endDate: endDate,
+                            symbolName: symbolName,
+                            symbolCode: symbolCode,
+                            temperature: temperature,
+                            temperatureMin: temperatureMin,
+                            temperatureMax: temperatureMax,
+                            windSpeed: windSpeed,
+                            windDirection: windDirection,
+                            clouds: clouds,
+                            humidity: humidity
+                        });
                     }
-
-                    dailyForecasts[dayKey].forecasts.push({
-                        startDate: startDate,
-                        endDate: endDate,
-                        symbolName: symbolName,
-                        temperature: temperature,
-                        temperatureMin: temperatureMin,
-                        temperatureMax: temperatureMax,
-                        windSpeed: windSpeed,
-                        windDirection: windDirection,
-                        clouds: clouds,
-                        humidity: humidity
-                    });
                 });
 
                 for (let dayKey in dailyForecasts) {
@@ -121,19 +126,39 @@ class Pais {
 
                     const dayArticle = $("<article></article>");
                     dayArticle.append(`<h2>${dayData.dayOfWeek}, ${dayData.dayOfMonth}</h2>`);
-
+                    let min = 1000;
+                    let max = -1000;
+                    let accumTemp = 0;
+                    let accumHum = 0;
+                    let records = 0;
+                    let impcode = 0;
+                    let symName = 0;
+                    let clouds = -1;
                     dayData.forecasts.forEach(forecast => {
-                        const timeArticle = $("<article></article>");
-                        timeArticle.append(`<h3>${forecast.startDate} - ${forecast.endDate}</h3>`);
-                        timeArticle.append(`<p><strong>Meteorología:</strong> ${forecast.symbolName}</p>`);
-                        timeArticle.append(`<p><strong>Temperatura:</strong> ${forecast.temperature} C (Min: ${forecast.temperatureMin} C, Max: ${forecast.temperatureMax} C)</p>`);
-                        timeArticle.append(`<p><strong>Velocidad del viento:</strong> ${forecast.windSpeed} m/s (Direccion: ${forecast.windDirection})</p>`);
-                        timeArticle.append(`<p><strong>Nubes:</strong> ${forecast.clouds}</p>`);
-                        timeArticle.append(`<p><strong>Humedad:</strong> ${forecast.humidity}%</p>`);
-
-                        dayArticle.append(timeArticle);
-
+                        records++;
+                        accumTemp += parseFloat(forecast.temperature);
+                        accumHum += parseFloat(forecast.humidity);
+                        if (impcode == 0) {
+                            impcode = forecast.symbolCode;
+                            symName = forecast.symbolName;
+                        }
+                        if (forecast.startDate == "9:00") {
+                            impcode = forecast.symbolCode;
+                            clouds = forecast.clouds;
+                            symName = forecast.symbolName;
+                        };
+                        if (forecast.temperatureMin < min) min = forecast.temperatureMin;
+                        if (forecast.temperatureMax > max) max = forecast.temperatureMax;
+                        if (clouds == -1) {
+                            clouds = forecast.clouds;
+                        }
                     })
+                    let meanTemp = accumTemp / records;
+                    let meanHum = accumHum / records;
+                    let icon = `https://openweathermap.org/img/wn/` + impcode + '@2x.png';
+                    dayArticle.append(`<img src=${icon} alt="${symName}" />`);
+                    dayArticle.append(`<p><b>Temperature</b>: ${meanTemp.toFixed(2)}ºC. (Min: ${min}ºC, Max: ${max}ºC)</p>`);
+                    dayArticle.append(`<p><b>Humidity</b>: ${meanHum.toFixed(2)}</p>`)                    
                     $("main").append(dayArticle);
                 }
             }

@@ -3,7 +3,7 @@ header /*Especificidad = 001*/{
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    padding: 1em 2em;
+    padding: 1rem;
     background-color: #035286;
     color: #e8eef1;
 }

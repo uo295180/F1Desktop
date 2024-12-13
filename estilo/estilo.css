@@ -7,6 +7,7 @@ body /*Especificidad = 001*/{
     font-family: Helvetica, Arial, sans-serif;
     color: #1e3d58;
     background-color: #e8eef1;
+    margin: 0;
 }
 
 h1 a /*Especificidad = 002*/{
@@ -14,6 +15,7 @@ h1 a /*Especificidad = 002*/{
 }
 
 p /*Especificidad = 001*/{
+    margin: 1em;
     font-size: smaller;
 }
 
@@ -22,6 +24,7 @@ section p /*Especificidad = 002*/{
 }
 
 h2,h3,h4,h5,h6 /*Especificidad = 001*/{
+    margin: 1em;
     color: #035286;
     background-color: inherit;
 }
@@ -38,7 +41,7 @@ section a:hover /*Especificidad = 012*/{
 }
 
 ul, ol /*Especificidad = 001*/{
-    margin: 18px;
+    margin: 1.8em;
 }
 ul /*Especificidad = 001*/{
     list-style-type: square;
@@ -58,12 +61,12 @@ table /*Especificidad = 001*/{
     table-layout: fixed;
     border-collapse: collapse;
     width: 100%;
-    border: 2px solid;
+    border: 0.2em solid;
 }
 
 td, th/*Especificidad = 001*/{
     border-collapse: collapse;
-    border: 1px solid;
+    border: 0.1em solid;
 }
 
 tbody td /*Especificidad = 002*/{
