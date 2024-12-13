@@ -32,9 +32,7 @@ class Viajes {
         }
     }
     getMapaEstaticoGoogle() {
-        const mapaEstatico = $("<div></div>");
-        mapaEstatico.attr('id', 'staticMap')
-        mapaEstatico.append(`<h2>Mapa Estático</h2>`);
+        $("main").append(`<h2>Mapa Estático</h2>`);
         console.log(this.longitud);
         var apiKey = "&key=AIzaSyC6j4mF6blrc4kZ54S6vYZ2_FpMY9VzyRU";
 
@@ -47,16 +45,18 @@ class Viajes {
         var sensor = "&sensor=false";
 
         this.imagenMapa = url + centro + zoom + tamaño + marcador + sensor + apiKey;
-        mapaEstatico.append(`<img src=${this.imagenMapa} alt='mapa estático google' />`);
-        $("main").append(mapaEstatico);
+        $("main").append(`<img src=${this.imagenMapa} alt='mapa estático google' />`);
     }
+
     initMap() {
         var centro = { lat: this.latitud, lng: this.longitud };
         $("main").append("<h2>Mapa Dinámico</h2>");
-        const dynamicMap = $("<div></div>");
-        dynamicMap.attr('id', 'dynamicMap');
-        $("main").append(dynamicMap);
-        var mapaGeoposicionado = new google.maps.Map(document.getElementById('dynamicMap'), {
+        // var check = document.querySelector('main > section > div');
+        // console.log(check);
+        const section = $("<section></section>");
+        section.append($("<div></div>"))
+        $("main").append(section);
+        var mapaGeoposicionado = new google.maps.Map(document.querySelector('main > section > div'), {
             zoom: 15,
             center: centro
         });
