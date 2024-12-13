@@ -4,6 +4,10 @@ main /*Especifidad 001*/{
     gap: 1.5em;  
     padding: 1em;  
 }
+main h2 /*Especifidad 002*/{
+    grid-column: 1 / -1;
+    text-align: center;
+}
 article /*Especifidad 001*/{
     border-radius: 1.5em;
     padding: 2em;

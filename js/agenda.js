@@ -12,7 +12,6 @@ class Agenda {
             type: "GET",
             dataType: "json",
             success: function (data) {
-                
                 let races = data.MRData.RaceTable.Races;
                 races.forEach(race => {
                     let raceName = race.raceName;

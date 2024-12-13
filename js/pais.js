@@ -68,6 +68,9 @@ class Pais {
                 console.log("XML Data received:", data);
                 let dailyForecasts = {};
                 let limitDays = 0;
+                const location = $(data).find("name").text();
+                console.log(location);
+                $("main").append(`<h2>Meteorología en ${location}, Shanghai, China</h2>`)
                 $(data).find("forecast time").each(function () {
                     const fromTime = $(this).attr("from");
                     const toTime = $(this).attr("to");
