@@ -17,7 +17,9 @@
     <link rel="icon" type="image/ico" href="multimedia/imágenes/f1icon.ico" sizes="16x16">
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"
         integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+        async defer></script>
     <script src="js/viajes.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCSHqfAJo3R5iQg33EC9bHwxc4e4SV057s"></script>
 </head>
 
 <body>
@@ -36,11 +38,9 @@
     </header>
     <p>Estás en: <a href="index.html" title="Inicio">Inicio</a> >> Viajes</p>
 
-    <main id="ubicacion">
-        <input type="button" value="Obtener mis coordenadas, altitud, rumbo y velocidad" onclick="viajes.verTodo('ubicacion');">
-        <input type="button" value="Obtener mapa estatico" onclick="viajes.getMapaEstaticoGoogle('ubicacion');">
-
+    <main>
     </main>
+
 </body>
 
 </html>

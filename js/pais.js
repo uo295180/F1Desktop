@@ -160,6 +160,7 @@ class Pais {
                     let meanHum = accumHum / records;
                     let icon = `https://openweathermap.org/img/wn/` + impcode + '@2x.png';
                     dayArticle.append(`<img src=${icon} alt="${symName}" />`);
+                    dayArticle.append(`<p><b>Tiempo</b>: ${symName}</p>`);
                     dayArticle.append(`<p><b>Temperature</b>: ${meanTemp.toFixed(2)}ºC. (Min: ${min}ºC, Max: ${max}ºC)</p>`);
                     dayArticle.append(`<p><b>Humidity</b>: ${meanHum.toFixed(2)}</p>`)                    
                     $("main").append(dayArticle);

@@ -20,16 +20,14 @@ header a:visited/*Especificidad = 012*/{
     background-color: inherit;
 }
 
-header nav a:visited /*Especificidad = 013*/{
-    color: #e8eef1;
-    background-color: inherit;
-}
 header nav a:hover /*Especificidad = 013*/{
     color: #FFFe92;
+    transform: scale(1.05);
     background-color: inherit;
 }
 
 header nav a/*Especificidad = 003*/{
+    color: #e8eef1;
     text-decoration: none;    
     transition: color 0.5s ease;
 }

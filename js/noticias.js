@@ -37,12 +37,13 @@ class Noticias {
     }
 
     mostrarNoticia(titulo, contenido, autor) {
-        const areaVisualizacion = document.getElementById("informacionArchivo");
 
         if (titulo && contenido && autor) {
-            const noticiaElement = document.createElement("article");
-            noticiaElement.innerHTML = `<h3>${titulo.trim()}</h3> <p> ${contenido.trim()} </p> <p>${autor.trim()}</p>`;
-            areaVisualizacion.appendChild(noticiaElement);
+            const noticiaElement = $("<article></article>");
+            noticiaElement.append(`<h2>${titulo.trim()}</h2>`)
+            noticiaElement.append(`<p>${contenido.trim()}</p>`)
+            noticiaElement.append(`<p><i>- ${autor.trim()}</i></p>`);
+            $("main").append(noticiaElement);
         }
     }
 

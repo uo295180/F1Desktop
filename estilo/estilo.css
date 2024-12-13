@@ -6,9 +6,10 @@
 body /*Especificidad = 001*/{
     font-family: Helvetica, Arial, sans-serif;
     color: #1e3d58;
-    background-color: #e8eef1;
+    background-color: #dedcdc;
     margin: 0;
 }
+
 
 h1 a /*Especificidad = 002*/{
     text-decoration-line: none;
@@ -29,7 +30,13 @@ h2,h3,h4,h5,h6 /*Especificidad = 001*/{
     background-color: inherit;
 }
 
+main, section /*Especifidad = 001*/{
+    margin: 1em;
+}
 
+section p, section h2, section h3, section h4, section h5, section h6, section table /*Especifidad = 002*/{
+    margin: 0em 0em 0.5em ;
+}
 
 section a:visited /*Especificidad = 012*/{
     color: #0C2E36;
@@ -76,4 +83,13 @@ tbody td /*Especificidad = 002*/{
 video /*Especificidad = 001*/{
     width: 100%;
     height: auto;
+}
+
+video, img, audio, dt /*Especifidad = 001*/{
+    margin: 1em;
+}
+
+#dynamicMap {
+    height: 600px;
+    width: 100%;
 }

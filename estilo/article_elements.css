@@ -8,7 +8,7 @@ main h2 /*Especifidad 002*/{
     grid-column: 1 / -1;
     text-align: center;
 }
-article /*Especifidad 001*/{
+main article /*Especifidad 001*/{
     border-radius: 1.5em;
     padding: 2em;
     border: 0.2em solid #014069;
@@ -32,7 +32,7 @@ article p /*Especifidad 003*/{
     margin: 0.5em 0;
 }
 
-h2 /*Especifidad 001*/{
+main h2 /*Especifidad 001*/{
     font-family: 'Arial', sans-serif;
 }
 
@@ -40,10 +40,6 @@ main /*Especifidad 001*/{
     padding: 2em;
 }
 
-body /*Especifidad 001*/{
-    background-color: #dedcdc;
-
-}
 
 article:hover /*Especifidad 012*/{
     transform: scale(1.03); 

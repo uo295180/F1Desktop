@@ -36,29 +36,31 @@
         </nav>
     </header>
     <p>Estás en: <a href="index.html" title="Inicio">Inicio</a> >> Noticias</p>
+        <h2>Noticias</h2>
+
+        <p id="errorArchivo"></p>
+    <section>
+        <h2>Añadir una nueva noticia</h2>
+
+        <label for="titulo">Título de la noticia:</label><br>
+        <input type="text" id="titulo" placeholder="Introduce el título de la noticia" /><br>
+
+        <label for="contenido">Contenido de la noticia:</label><br>
+        <textarea id="contenido" placeholder="Introduce el contenido de la noticia"></textarea><br>
+
+        <label for="autor">Autor de la noticia:</label><br>
+        <input type="autor" id="autor" placeholder="Introduce el autor de la noticia" /><br>
+
+        <button id="addNewsButton" onclick="noticias.añadirNoticia()">Añadir Noticia</button>
+    </section>
     <p>
         <input type="file" id="archivoTexto" onchange="noticias.readInputFile(this.files);">
     </p>
-    <h2>Noticias</h2>
-    <p>En desarrollo...</p>
+    <link rel="stylesheet" type="text/css" href="estilo/article_elements.css">
+    
+    <main>
 
-    <link rel="stylesheet" type="text/css" href="estilo/article_elements.css">    
-    <p id="errorArchivo"></p>
-    <section id="informacionArchivo"></section>
-
-    <h2>Añadir una nueva noticia</h2>
-
-    <label for="titulo">Título de la noticia:</label><br>
-    <input type="text" id="titulo" placeholder="Introduce el título de la noticia" /><br>
-
-    <label for="contenido">Contenido de la noticia:</label><br>
-    <textarea id="contenido" placeholder="Introduce el contenido de la noticia"></textarea><br>
-
-    <label for="autor">Autor de la noticia:</label><br>
-    <input type="autor" id="autor" placeholder="Introduce el autor de la noticia" /><br>
-
-    <button id="addNewsButton" onclick="noticias.añadirNoticia()">Añadir Noticia</button>
-
-</body>
+    </main>
+    </body>
 
 </html>
