@@ -8,6 +8,7 @@ main /*Especifidad 001*/{
 article /*Especifidad 001*/{
     background-color: #f9f9f9;
     border-radius: 0.8em;
+    border: 0.2em solid black;
     padding: 1.5em;  
     box-shadow: 0 0.2em 0.6em rgba(0, 0, 0, 0.1);
     display: flex;

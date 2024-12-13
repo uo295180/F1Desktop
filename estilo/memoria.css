@@ -1,40 +1,37 @@
-/* Estilo base para la sección */
 section {
-    display: grid; /* Usamos grid para organizar las tarjetas */
-    grid-template-columns: repeat(4, 1fr); /* 4 columnas */
-    grid-template-rows: repeat(3, auto); /* 3 filas, de altura automática */
-    gap: 0.5em; /* Espacio entre las tarjetas */
-    justify-items: center; /* Centra las tarjetas horizontalmente */
-    padding: 0.5em; /* Reducimos el padding para hacer que el contenedor se vea más pequeño */
-    width: 80%; /* Ancho del contenedor reducido al 80% del ancho de la página */
-    max-width: 40em; /* Limita el ancho máximo del contenedor */
-    margin: 0 auto; /* Centra la sección en la página */
-    height: auto; /* Altura automática, se ajustará según el contenido */
+    display: grid; 
+    grid-template-columns: repeat(4, 1fr); 
+    grid-template-rows: repeat(3, auto); 
+    gap: 0.5em;
+    justify-items: center;
+    padding: 0.5em;
+    width: 80%;
+    max-width: 40em;
+    margin: 0 auto;
+    height: auto;
 }
 
-/* Estilo para el título */
 section h2 {
-    grid-column: span 4; /* El título ocupa toda la primera fila */
-    text-align: center; /* Centra el texto */
-    margin-bottom: 1em; /* Separación debajo del título */
-    font-size: 1.2em; /* Reducimos el tamaño del título */
+    grid-column: span 4;
+    text-align: center;
+    margin-bottom: 1em;
+    font-size: 1.2em;
     font-weight: bold;
 }
 
-/* Estilo para las tarjetas */
 section article {
     display: flex;
-    flex-direction: column; /* Los elementos dentro de cada tarjeta se apilan verticalmente */
-    width: 90%; /* Las tarjetas ocupan el 90% del espacio disponible en su columna */
+    flex-direction: column;
+    width: 90%;
     background-color: #f0f0f0;
-    border: 0.0625em solid #ccc; /* Borde de 1px */
-    border-radius: 0.5em; /* Bordes redondeados */
+    border: 0.0625em solid #ccc;
+    border-radius: 0.5em;
     cursor: pointer;
     position: relative;
     transform: scale(1);
     transform-style: preserve-3d;
     transition: transform 0.5s;
-    aspect-ratio: 1 / 1.5; /* Relación de aspecto: más alto que ancho (1:2) */
+    aspect-ratio: 1 / 1.5;
 }
 
 section article[data-state=flip] {
@@ -67,4 +64,10 @@ section article h3 {
 
 section article img {
     transform: rotateY(180deg);
+}
+
+@media screen and (max-widt: 480){
+    section article h3{
+        font-size: 0.6rem;
+    }
 }

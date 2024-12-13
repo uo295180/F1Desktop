@@ -1,6 +1,7 @@
 article /*Especifidad 001*/{
     border-radius: 1.5em;
     padding: 2em;
+    border: 0.2em solid black;
     margin-bottom: 2em;
     overflow: hidden;
     background-color: #f4f7fc;
@@ -17,9 +18,15 @@ article h2 /*Especifidad 002*/{
 article article /*Especifidad 002*/{
     background-color: #f9f9f9;
     border-radius: 1em;
+    border: 0.1em solid black;
     padding: 1.5em;
     margin-bottom: 1.5em;
     box-shadow: 0 0.2em 0.4em rgba(0, 0, 0, 0.1);
+}
+
+article article:hover _/*Especifidad 012*/{
+    transform: scale(1.02); 
+    box-shadow: 0 0.4em 1em rgba(0, 0, 0, 0.2); 
 }
 
 article article h3 /*Especifidad 003*/{
