@@ -45,14 +45,23 @@ class Noticias {
             noticiaElement.append(`<p><i>- ${autor.trim()}</i></p>`);
             $("main").append(noticiaElement);
         }
+
     }
 
     añadirNoticia() {
-        const titulo = document.getElementById("titulo").value.trim(); 
-        const contenido = document.getElementById("contenido").value.trim(); 
-        const autor = document.getElementById("autor").value.trim(); 
+        const labelTitulo = document.getElementById("titulo");
+        const labelContenido = document.getElementById("contenido");
+        const labelAutor = document.getElementById("autor");
+
+        const titulo = labelTitulo.value.trim();
+        const contenido = labelContenido.value.trim();
+        const autor = labelAutor.value.trim();
 
         this.mostrarNoticia(titulo, contenido, autor);
+
+        labelTitulo.value = "";
+        labelContenido.value = "";
+        labelAutor.value = "";
     }
 
 }

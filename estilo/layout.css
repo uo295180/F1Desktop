@@ -13,6 +13,7 @@ header nav/*Especificidad = 002*/{
     flex-wrap: wrap;
     justify-content: space-between;
     gap: 0.3em;
+    padding-right: 3%;
 }
 
 header a:visited/*Especificidad = 012*/{
@@ -30,6 +31,11 @@ header nav a/*Especificidad = 003*/{
     color: #e8eef1;
     text-decoration: none;    
     transition: color 0.5s ease;
+    padding: 0em 1.4em;
+}
+
+header a /*Especifidad 002*/{
+    color: #e8eef1;
 }
 
 header nav a.active/*Especificidad = 013*/{
