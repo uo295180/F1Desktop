@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>F1Desktop - Predicciones</title>
+    <link rel="stylesheet" href="estilo/estilo.css" />
+    <link rel="stylesheet" href="estilo/layout.css" />
+</head>
+
+<body>
+    <header>
+        <h1><a href="index.html" title="Inicio">F1 Desktop</a></h1>
+
+        <nav>
+            <a href="index.html" title="Inicio">Inicio</a>
+            <a href="piloto.html" title="Piloto" class="active">Piloto</a>
+            <a href="noticias.html" title="Noticias">Noticias</a>
+            <a href="calendario.html" title="Calendario">Calendario</a>
+            <a href="meteorología.html" title="Meteorología">Meteorología</a>
+            <a href="circuito.html" title="Circuito">Circuito</a>
+            <a href="viajes.html" title="Viajes">Viajes</a>
+            <a href="juegos.html" title="Juegos">Juegos</a>
+        </nav>
+    </header>
+    <p>Estás en: <a href="index.html" title="Inicio">Inicio</a> >> <a href="juegos.html">Juegos</a> >> Predicciones</p>
+    <aside>
+        <h2>Juegos</h2>
+        <p><a href="memoria.html">Memoria</a></p>
+        <p><a href="semaforo.html">Semaforo</a></p>
+        <p><a href="api.html">Predicciones</a></p>
+    </aside>
+
+    <section>
+        <h2>Predicción de Carrera de F1</h2>
+
+        <p>Selecciona tu piloto favorito y predice su posición final en la carrera:</p>
+    </section>
+    <section>
+        <form>
+            <label>Pilotos disponibles:</label>
+            <select>
+                <option>Lewis Hamilton</option>
+                <option>Max Verstappen</option>
+                <option>Charles Leclerc</option>
+                <option>Carlos Sainz</option>
+                <!-- Puedes añadir más pilotos aquí -->
+            </select>
+
+            <label>Predice la posición final:</label>
+            <input type="number" min="1" max="20" required>
+
+            <button type="submit">Hacer Predicción</button>
+        </form>
+    </section>
+    <section>
+        <h2>Mis Predicciones</h2>
+        <ul></ul>
+    </section>
+    <script src="js/api.js"></script>
+</body>
+
+</html>
