@@ -51,8 +51,6 @@ class Viajes {
     initMap() {
         var centro = { lat: this.latitud, lng: this.longitud };
         $("main").append("<h2>Mapa Dinámico</h2>");
-        // var check = document.querySelector('main > section > div');
-        // console.log(check);
         const section = $("<section></section>");
         section.append($("<div></div>"))
         $("main").append(section);

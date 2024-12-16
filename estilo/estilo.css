@@ -207,6 +207,14 @@ aside>p>a:hover /*Especifidad = 013*/{
     transition: 0.3s ease;
 }
 
+svg {
+    width: 100%;  
+    height: 100%; 
+    object-fit: contain;
+    display: block;
+}
+
+
 
 @media (max-width: 768px) {
     main>img /*Especifidad = 002*/

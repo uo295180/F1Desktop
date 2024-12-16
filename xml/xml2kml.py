@@ -16,8 +16,16 @@ def convertToKml(archivo):
     document = etree.SubElement(kml, 'Document')
 
     etree.SubElement(document, 'name').text = "Planimetría"
+
+    style = etree.SubElement(document, 'Style', id="redLineStyle")
+    lineStyle = etree.SubElement(style, 'LineStyle')
+    etree.SubElement(lineStyle, 'color').text = "ff0000ff"
+    etree.SubElement(lineStyle, 'width').text = "5"
+
     placemark = etree.SubElement(document, 'Placemark')
     etree.SubElement(placemark, 'name').text = 'Circuito'
+
+    etree.SubElement(placemark, 'styleUrl').text = "#redLineStyle"
 
     lookAt = etree.SubElement(placemark, 'LookAt')
     longitud = raiz.find('.//ns:salida/ns:coordenadas/ns:longitud/ns:gradosLongitud', NAMESPACE).text
@@ -28,9 +36,8 @@ def convertToKml(archivo):
     etree.SubElement(lookAt, 'altitude').text = altitud
     etree.SubElement(lookAt, 'altitudeMode').text = 'absolute'
 
-    polygon = etree.SubElement(placemark, 'Polygon')
-    outerBoundaryIs = etree.SubElement(polygon, 'outerBoundaryIs')
-    linearRing = etree.SubElement(outerBoundaryIs, 'LinearRing')
+    line = etree.SubElement(placemark, 'LineString')
+    
     
     textCoord = ""
     for tramo in raiz.findall('.//ns:tramo', NAMESPACE):
@@ -40,7 +47,7 @@ def convertToKml(archivo):
 
         textCoord += f"{longitud},{latitud},{altitud} "
 
-    etree.SubElement(linearRing, 'coordinates').text = textCoord
+    etree.SubElement(line, 'coordinates').text = textCoord
 
     archivoSalida = os.path.join(absolute_path, 'circuito.kml')
     arbol = etree.ElementTree(kml)
