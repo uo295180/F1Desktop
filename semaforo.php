@@ -33,6 +33,8 @@ class Record
 
         if ($stmt->execute()) {
             echo "<p>Resultados guardados correctamente</p>";
+            header("Location: " . $_SERVER['PHP_SELF']);
+            exit();
         } else {
             echo "<p>Error al guardar resultados: " . $stmt->error . "</p>";
         }
@@ -59,12 +61,6 @@ class Record
             difficulty VARCHAR(20) NOT NULL,
             reaction_time VARCHAR(10) NOT NULL
         )";
-
-            if ($this->conn->query($createTableQuery) === TRUE) {
-                echo "<p>Tabla 'records' creada correctamente.</p>";
-            } else {
-                die("Error al crear la tabla 'records': " . $this->conn->error);
-            }
         }
     }
 }
@@ -124,12 +120,15 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <aside>
         <h2>Juegos</h2>
         <p><a href="memoria.html">Memoria</a></p>
-        <p><a href="semaforo.html">Semaforo</a></p>
+        <p><a href="semaforo.php">Semaforo</a></p>
         <p><a href="api.html">Predicciones</a></p>
     </aside>
     <main>
 
     </main>
+    <section>
+
+    </section>
     <?php
 
     ?>

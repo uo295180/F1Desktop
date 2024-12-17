@@ -9,7 +9,7 @@ class Semaforo {
 
     constructor() {
         this.level = this.getRandomInt(3);
-        this.difficulty = this.levels[level];
+        this.difficulty = this.levels[this.level];
         console.log(this.difficulty);
         this.createStructure();
     }
@@ -103,7 +103,7 @@ class Semaforo {
                 <input type="submit" value="Guardar Récord">
             </form>
         `
-        const container = document.querySelector('main');
+        const container = document.querySelector('section');
         container.insertAdjacentHTML('beforeend', formHtml);
     }
 }
