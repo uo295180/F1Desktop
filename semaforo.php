@@ -28,7 +28,7 @@ class Record
 
     public function saveRecord($name, $surname, $difficulty, $reactionTime)
     {
-        $stmt = $this->conn->prepare("INSERT INTO records (name, surname, difficulty, reactionTime) VALUES (?,?,?,?)");
+        $stmt = $this->conn->prepare("INSERT INTO records (name, surname, difficulty, reaction_time) VALUES (?,?,?,?)");
         $stmt->bind_param("ssss", $name, $surname, $difficulty, $reactionTime);
 
         if ($stmt->execute()) {
