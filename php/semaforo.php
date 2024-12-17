@@ -123,10 +123,10 @@ class Record
 
     <title>F1Desktop - Juegos</title>
 
-    <link rel="stylesheet" type="text/css" href="estilo/estilo.css">
-    <link rel="stylesheet" type="text/css" href="estilo/layout.css">
-    <link rel="stylesheet" type="text/css" href="estilo/semaforo.css">
-    <link rel="icon" type="image/ico" href="multimedia/imágenes/f1icon.ico" sizes="16x16">
+    <link rel="stylesheet" type="text/css" href="../estilo/estilo.css">
+    <link rel="stylesheet" type="text/css" href="../estilo/layout.css">
+    <link rel="stylesheet" type="text/css" href="../estilo/semaforo.css">
+    <link rel="icon" type="image/ico" href="../multimedia/imágenes/f1icon.ico" sizes="16x16">
 
 </head>
 
@@ -134,23 +134,23 @@ class Record
     <header>
         <h1><a href="index.html" title="Inicio">F1 Desktop</a></h1>
         <nav>
-            <a href="index.html" title="Inicio">Inicio</a>
-            <a href="piloto.html" title="Piloto">Piloto</a>
-            <a href="noticias.html" title="Noticias">Noticias</a>
-            <a href="calendario.html" title="Calendario">Calendario</a>
-            <a href="meteorología.html" title="Meteorología">Meteorología</a>
-            <a href="circuito.html" title="Circuito">Circuito</a>
-            <a href="viajes.html" title="Viajes">Viajes</a>
-            <a href="juegos.html" title="Juegos">Juegos</a>
+            <a href="../index.html" title="Inicio">Inicio</a>
+            <a href="../piloto.html" title="Piloto">Piloto</a>
+            <a href="../noticias.html" title="Noticias">Noticias</a>
+            <a href="../calendario.html" title="Calendario">Calendario</a>
+            <a href="../meteorología.html" title="Meteorología">Meteorología</a>
+            <a href="../circuito.html" title="Circuito">Circuito</a>
+            <a href="viajes.php" title="Viajes">Viajes</a>
+            <a href="../juegos.html" title="Juegos">Juegos</a>
         </nav>
     </header>
-    <p>Estás en: <a href="index.html" title="Inicio">Inicio</a> >> <a href="juegos.html" title="Juegos">Juegos</a> >>
+    <p>Estás en: <a href="../index.html" title="Inicio">Inicio</a> >> <a href="../juegos.html" title="Juegos">Juegos</a> >>
         Semáforo</p>
     <aside>
         <h2>Juegos</h2>
-        <p><a href="memoria.html">Memoria</a></p>
+        <p><a href="../memoria.html">Memoria</a></p>
         <p><a href="semaforo.php">Semaforo</a></p>
-        <p><a href="api.html">Predicciones</a></p>
+        <p><a href="../api.html">Predicciones</a></p>
     </aside>
     <main>
 
@@ -189,7 +189,7 @@ class Record
         unset($_SESSION['top_records']);
     }
     ?>  
-    <script src="js/semaforo.js"></script>
+    <script src="../js/semaforo.js"></script>
 </body>
 
 </html>

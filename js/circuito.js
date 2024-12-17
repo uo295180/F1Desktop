@@ -14,9 +14,9 @@ function leerArchivoXML(files) {
                 throw new Error('Error al analizar el archivo XML.');
             }
             const htmlContent = Circuito.parseXmlToHtml(xmlDoc);
-            document.querySelector('article').innerHTML = htmlContent;
+            document.querySelector('section').innerHTML = htmlContent;
         } catch (error) {
-            document.querySelector('article').innerHTML = `<p style="color:red;">No se pudo procesar el archivo XML: ${error.message}</p>`;
+            document.querySelector('section').innerHTML = `<p style="color:red;">No se pudo procesar el archivo XML: ${error.message}</p>`;
         }
     };
 

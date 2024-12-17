@@ -15,8 +15,7 @@
 
     <link rel="icon" type="image/ico" href="multimedia/imágenes/f1icon.ico" sizes="16x16">
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"
-        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-        async defer></script>
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>   
     <script src="js/circuito.js"></script>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCSHqfAJo3R5iQg33EC9bHwxc4e4SV057s"></script>
 </head>
@@ -31,7 +30,7 @@
             <a href="calendario.html" title="Calendario">Calendario</a>
             <a href="meteorología.html" title="Meteorología">Meteorología</a>
             <a href="circuito.html" title="Circuito" class="active">Circuito</a>
-            <a href="viajes.html" title="Viajes">Viajes</a>
+            <a href="php/viajes.php" title="Viajes">Viajes</a>
             <a href="juegos.html" title="Juegos">Juegos</a>
         </nav>
     </header>
@@ -41,11 +40,11 @@
     <main>
     <p>Seleccione un archivo xml:</p>
     <input type="file" accept=".xml" onchange="leerArchivoXML(this.files)" />
-    <article></article>
     <p>Seleccione un archivo kml:</p>
     <input type="file" accept=".kml" onchange="procesarArchivoKML(this.files)" />
     <p>Seleccione un archivo svg:</p>
     <input type="file" accept=".svg" onchange="cargarSVG(this.files)" />
+    <section></section>
     </main>
 </body>
 

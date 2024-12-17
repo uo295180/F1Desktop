@@ -183,16 +183,25 @@ main>img
     height: auto;
 }
 
-main>aside /*Especifidad = 002*/{
+main>aside
+
+/*Especifidad = 002*/
+    {
     display: inline;
 }
 
-aside /*Especifidad = 001*/{
+aside
+
+/*Especifidad = 001*/
+    {
     display: flex;
     gap: 0.5em;
 }
 
-aside>p>a /*Especifidad = 003*/{
+aside>p>a
+
+/*Especifidad = 003*/
+    {
     display: inline-block;
     padding: 1em 2em;
     font-size: 1rem;
@@ -202,22 +211,80 @@ aside>p>a /*Especifidad = 003*/{
     color: #dedcdc;
 }
 
-aside>p>a:hover /*Especifidad = 013*/{
+aside>p>a:hover /*Especifidad = 013*/ {
     transform: scale(1.05);
     transition: 0.3s ease;
 }
 
 svg {
-    width: 100%;  
-    height: 100%; 
+    width: 100%;
+    height: 100%;
     object-fit: contain;
     display: block;
+}
+
+article {
+    width: 100%;
+    max-width: 100vh;
+    height: 70vh;
+    position: relative;
+    overflow: hidden;
+    border-radius: 1em;
+}
+
+article h2 {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 0.5em;
+    font-size: 2em;
+}
+
+article img {
+    width: 100%;
+    max-width: 100vh;
+    height: 60vh;
+    position: absolute;
+    transition: all 0.5s;
+    object-fit: contain;
+}
+
+article button {
+    position: absolute;
+    width: 2em;
+    height: 2em;
+    padding: 0.5em;
+    border: none;
+    border-radius: 50%;
+    z-index: 10;
+    cursor: pointer;
+    background-color: #fff;
+    font-size: 1em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+article button:active {
+    transform: scale(1.1);
+}
+
+article button:nth-of-type(2) {
+    top: 50%;
+    left: 4%;
+}
+
+article button:nth-of-type(1) {
+    top: 50%;
+    right: 0%;
 }
 
 
 
 @media (max-width: 768px) {
-    main>img /*Especifidad = 002*/
+    main>img
+
+    /*Especifidad = 002*/
         {
         max-width: 90%;
     }
