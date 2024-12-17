@@ -37,6 +37,10 @@ class Record
 
             $_SESSION['top_records'] = $this->getTopRecords($difficulty);
 
+            // echo "<pre>";
+            // print_r($_SESSION['top_records']);
+            // echo "</pre>";
+
             header("Location: " . $_SERVER['PHP_SELF']);
             exit();
         } else {
@@ -71,7 +75,7 @@ class Record
     public function getTopRecords($difficulty)
     {
         $query = "SELECT name, surname, reaction_time 
-            FROM records 
+            FROM registro 
             WHERE difficulty = ? 
             ORDER BY reaction_time ASC 
             LIMIT 10";
@@ -110,7 +114,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $difficulty = $_POST['difficulty'] ?? '';
     $reactionTime = $_POST['reactionTime'] ?? '';
 
-    if (!empty($name) && !empty($surname) && !empty($difficulty) && !empty($reactionTime)) {
+    if (!empty($name) && !empty($surname)) {
         $record = new Record();
         $record->saveRecord($name, $surname, $difficulty, $reactionTime);
     } else {
@@ -131,7 +135,6 @@ if (!empty($_SESSION['top_records'])) {
 
     echo "</ol>";
 
-    // Limpiar la sesión para que no se muestre de nuevo en la siguiente carga
     unset($_SESSION['top_records']);
 }
 ?>
