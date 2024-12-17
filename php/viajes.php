@@ -33,10 +33,11 @@ class Carrusel
         }
     }
 
-    public function mostrarCarrusel() {
+    public function mostrarCarrusel()
+    {
         if (!empty($this->fotos)) {
             echo '<article>';
-            echo '<h2>Imagenes de '.htmlspecialchars($this->capital).', '.htmlspecialchars($this->pais).'</h2>';
+            echo '<h2>Imagenes de ' . htmlspecialchars($this->capital) . ', ' . htmlspecialchars($this->pais) . '</h2>';
             foreach ($this->fotos as $foto) {
                 echo "<img src='$foto' alt='Imagen del país' />";
             }
@@ -50,7 +51,53 @@ class Carrusel
 }
 $carrusel = new Carrusel("Pekin", "China"); // Ajusta la capital y el país según tu necesidad
 $carrusel->obtenerFotos();
-?>
+
+
+class Moneda
+{
+    private $local;
+    private $extranjera;
+    private $apiKey;
+    public function __construct($local, $extranjera)
+    {
+        $this->local = $local;
+        $this->extranjera = $extranjera;
+        $this->apiKey = "2fb1c30c73c5789d79d4ea55";
+    }
+
+    public function obtainExchangeRate()
+    {
+        $url = "https://v6.exchangerate-api.com/v6/$this->apiKey/pair/$this->local/$this->extranjera";
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+        $response_json = curl_exec($ch);
+        curl_close($ch);
+        if (false !== $response_json) {
+            try {
+                $response = json_decode($response_json);
+                //echo "$response";
+                if ('success' === $response->result) {
+                    $extr_rate = $response->conversion_rate;
+                    echo "<section>";
+                    echo "<h2>Exchange rate ($this->local to $this->extranjera)</h2>";
+                    echo "<p>The exchange rate from $this->local to $this->extranjera is: $extr_rate</p>";
+                    echo "</section>";
+                } else {
+                    echo "No success";
+                }
+            } catch (Exception $e) {
+                echo "Error in request";
+            }
+        } else {
+            echo "False sesponse";
+        }
+    }
+}
+
+$moneda = new Moneda("EUR", "CNY")
+    ?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -70,8 +117,8 @@ $carrusel->obtenerFotos();
     <link rel="icon" type="image/ico" href="../multimedia/imágenes/f1icon.ico" sizes="16x16">
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"
         integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-    <script
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCSHqfAJo3R5iQg33EC9bHwxc4e4SV057s&callback=initMap" async defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCSHqfAJo3R5iQg33EC9bHwxc4e4SV057s&callback=initMap"
+        async defer></script>
 </head>
 
 <body>
@@ -92,7 +139,8 @@ $carrusel->obtenerFotos();
 
     <main>
         <?php
-            $carrusel->mostrarCarrusel();
+        $moneda->obtainExchangeRate();
+        $carrusel->mostrarCarrusel();
         ?>
     </main>
     <script src="../js/viajes.js"></script>
