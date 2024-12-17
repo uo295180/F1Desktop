@@ -28,7 +28,7 @@ class Record
 
     public function saveRecord($name, $surname, $difficulty, $reactionTime)
     {
-        $stmt = $this->conn->prepare("INSERT INTO records (name, surname, difficulty, reaction_time) VALUES (?,?,?,?)");
+        $stmt = $this->conn->prepare("INSERT INTO registro (name, surname, difficulty, reaction_time) VALUES (?,?,?,?)");
         $stmt->bind_param("ssss", $name, $surname, $difficulty, $reactionTime);
 
         if ($stmt->execute()) {
@@ -47,12 +47,12 @@ class Record
 
     private function checkAndCreateTable()
     {
-        $checkTableQuery = "SHOW TABLES LIKE 'records'";
+        $checkTableQuery = "SHOW TABLES LIKE 'registro'";
 
         $result = $this->conn->query($checkTableQuery);
 
         if ($result->num_rows == 0) {
-            $createTableQuery = "CREATE TABLE records (
+            $createTableQuery = "CREATE TABLE registro (
             id INT AUTO_INCREMENT PRIMARY KEY,
             name VARCHAR(50) NOT NULL,
             surname VARCHAR(50) NOT NULL,

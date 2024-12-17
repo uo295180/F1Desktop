@@ -58,6 +58,11 @@ main p /*Especifidad 002*/{
 
 }
 
+main form /*Especifidad 002*/{
+    grid-column: 1 / -1;
+    grid-row: 5;
+}
+
 main.load div:nth-child(2) /*Especifidad 022*/{animation: 0.5 light forwards;}
 main.load div:nth-child(3) /*Especifidad 022*/{animation: 0.5s light 0.5s forwards;}
 main.load div:nth-child(4) /*Especifidad 022*/{animation: 0.5s light 1s forwards;}

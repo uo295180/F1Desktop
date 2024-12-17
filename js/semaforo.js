@@ -4,10 +4,12 @@ class Semaforo {
     unload_moment = null;
     clic_moment = null;
     difficulty = 0;
+    level = 0;
     button2 = undefined
 
     constructor() {
-        this.difficulty = this.levels[this.getRandomInt(3)];
+        this.level = this.getRandomInt(3);
+        this.difficulty = this.levels[level];
         console.log(this.difficulty);
         this.createStructure();
     }
@@ -53,7 +55,7 @@ class Semaforo {
         this.button2.disabled = true;
         this.button1.disabled = false;
 
-        this.createRecordForm(this.difficulty, time / 1000);
+        this.createRecordForm(this.level, time / 1000);
     }
 
     createStructure() {
