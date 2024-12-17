@@ -33,6 +33,10 @@ class Record
 
         if ($stmt->execute()) {
             echo "<p>Resultados guardados correctamente</p>";
+
+            $topRecords = $this->getTopRecords($difficulty);
+            $this->renderTopRecords($topRecords);
+
             header("Location: " . $_SERVER['PHP_SELF']);
             exit();
         } else {
@@ -62,6 +66,41 @@ class Record
             reaction_time VARCHAR(10) NOT NULL
         )";
         }
+    }
+
+    public function getTopRecords($difficulty)
+    {
+        $query = "SELECT name, surname, reaction_time 
+            FROM records 
+            WHERE difficulty = ? 
+            ORDER BY reaction_time ASC 
+            LIMIT 10";
+
+        $stmt = $this->conn->prepare($query);
+        $stmt->bind_param("s", $difficulty);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        $records = [];
+        while ($row = $result->fetch_assoc()) {
+            $records[] = $row;
+        }
+
+        $stmt->close();
+        return $records;
+    }
+
+    public function renderTopRecords($records){
+        echo "<h3>Top 10 Records</h3>";
+        echo "<ol>";
+        foreach ($records as $record) {
+            echo "<li>";
+            echo htmlspecialchars($record['name']) . " " . htmlspecialchars($record['surname']) . 
+            " - Tiempo: " . htmlspecialchars($record['reaction_time']) . "s";            
+            echo "</li>";
+        }
+
+        echo "</ol>";
     }
 }
 
