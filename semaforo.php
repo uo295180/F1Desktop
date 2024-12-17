@@ -74,7 +74,7 @@ class Record
 
     public function getTopRecords($difficulty)
     {
-        $query = "SELECT name, surname, reaction_time 
+        $query = "SELECT name, surname, difficulty, reaction_time 
             FROM registro 
             WHERE difficulty = ? 
             ORDER BY reaction_time ASC 
@@ -106,36 +106,6 @@ class Record
 
         echo "</ol>";
     }
-}
-
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    $name = $_POST['name'] ?? '';
-    $surname = $_POST['surname'] ?? '';
-    $difficulty = $_POST['difficulty'] ?? '';
-    $reactionTime = $_POST['reactionTime'] ?? '';
-
-    if (!empty($name) && !empty($surname)) {
-        $record = new Record();
-        $record->saveRecord($name, $surname, $difficulty, $reactionTime);
-    } else {
-        echo "<p>Por favor, completa todos los campos del formulario.</p>";
-    }
-}
-
-if (!empty($_SESSION['top_records'])) {
-    echo "<h3>Top 10 Récords</h3>";
-    echo "<ol>";
-
-    foreach ($_SESSION['top_records'] as $record) {
-        echo "<li>";
-        echo htmlspecialchars($record['name']) . " " . htmlspecialchars($record['surname']) . 
-            " - Tiempo: " . htmlspecialchars($record['reaction_time']) . "s";
-        echo "</li>";
-    }
-
-    echo "</ol>";
-
-    unset($_SESSION['top_records']);
 }
 ?>
 
@@ -189,8 +159,36 @@ if (!empty($_SESSION['top_records'])) {
 
     </section>
     <?php
-
-    ?>
+    if ($_SERVER["REQUEST_METHOD"] === "POST") {
+        $name = $_POST['name'] ?? '';
+        $surname = $_POST['surname'] ?? '';
+        $difficulty = $_POST['difficulty'] ?? '';
+        $reactionTime = $_POST['reactionTime'] ?? '';
+    
+        if (!empty($name) && !empty($surname)) {
+            $record = new Record();
+            $record->saveRecord($name, $surname, $difficulty, $reactionTime);
+        } else {
+            echo "<p>Por favor, completa todos los campos del formulario.</p>";
+        }
+    }
+    
+    if (!empty($_SESSION['top_records'])) {
+        echo "<h3>Top 10 Récords (Difficulty: ".htmlspecialchars($_SESSION['top_records'][0]['difficulty']). ")</h3>";
+        echo "<ol>";
+    
+        foreach ($_SESSION['top_records'] as $record) {
+            echo "<li>";
+            echo htmlspecialchars($record['name']) . " " . htmlspecialchars($record['surname']) . 
+                " - Tiempo: " . htmlspecialchars($record['reaction_time']) . "s";
+            echo "</li>";
+        }
+    
+        echo "</ol>";
+    
+        unset($_SESSION['top_records']);
+    }
+    ?>  
     <script src="js/semaforo.js"></script>
 </body>
 
