@@ -1,4 +1,5 @@
 <?php
+session_start();
 class Record
 {
     private $server;
@@ -34,8 +35,7 @@ class Record
         if ($stmt->execute()) {
             echo "<p>Resultados guardados correctamente</p>";
 
-            $topRecords = $this->getTopRecords($difficulty);
-            $this->renderTopRecords($topRecords);
+            $_SESSION['top_records'] = $this->getTopRecords($difficulty);
 
             header("Location: " . $_SERVER['PHP_SELF']);
             exit();
@@ -116,6 +116,23 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     } else {
         echo "<p>Por favor, completa todos los campos del formulario.</p>";
     }
+}
+
+if (!empty($_SESSION['top_records'])) {
+    echo "<h3>Top 10 Récords</h3>";
+    echo "<ol>";
+
+    foreach ($_SESSION['top_records'] as $record) {
+        echo "<li>";
+        echo htmlspecialchars($record['name']) . " " . htmlspecialchars($record['surname']) . 
+            " - Tiempo: " . htmlspecialchars($record['reaction_time']) . "s";
+        echo "</li>";
+    }
+
+    echo "</ol>";
+
+    // Limpiar la sesión para que no se muestre de nuevo en la siguiente carga
+    unset($_SESSION['top_records']);
 }
 ?>
 
