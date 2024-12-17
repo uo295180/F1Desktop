@@ -39,7 +39,6 @@ function displayPredictions() {
         predictionsList.appendChild(noPredictionsMessage);
         return;
     }
-    console.log(predictions);
     // Mostrar las predicciones
     predictions.forEach(prediction => {
         const listItem = document.createElement('li');
